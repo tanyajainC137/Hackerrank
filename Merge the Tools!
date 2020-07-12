@@ -1,0 +1,19 @@
+def merge_the_tools(string, k):
+    # your code goes here
+    l = len(string)//k
+    st = 0
+    for i in range(l):
+        t = string[st:st+k]
+        t = list(t)
+        res = []
+        for j in t:
+            if j not in res:
+                res.append(j)
+                
+        print(*res, sep = '' )        
+        st = st + k
+ 
+
+if __name__ == '__main__':
+    string, k = input(), int(input())
+    merge_the_tools(string, k)
