@@ -1,0 +1,28 @@
+#https://www.hackerrank.com/challenges/the-minion-game/problem
+
+def minion_game(string):
+    # your code goes here
+
+    vowels = set(['A', 'E', 'I', 'O', 'U'])
+    
+    kscore = 0
+    sscore = 0
+    
+    for _,i in enumerate(string):
+    
+        if i not in vowels:
+            sscore = sscore + (len(string) - _)
+                        
+        if i in vowels:
+            kscore = kscore + (len(string) - _)
+               
+    if kscore == sscore:
+        print('Draw') 
+    if kscore> sscore:
+        print('Kevin '+ str(kscore))
+    if kscore<sscore:
+        print('Stuart '+ str(sscore))      
+
+if __name__ == '__main__':
+    s = input()
+    minion_game(s)
