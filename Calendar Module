@@ -1,0 +1,25 @@
+#https://www.hackerrank.com/challenges/calendar-module/problem?h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen
+
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+import calendar
+import datetime
+
+date = input()
+date = datetime.datetime.strptime(date , '%m %d %Y')
+
+day = date.day
+month = date.month
+year = date.year
+
+calendar.setfirstweekday(calendar.MONDAY)
+
+x = calendar.weekday(year, month, day)
+y = list(calendar.day_name)
+
+weekday = y[x].upper()
+
+print(weekday)
+
+
+
+
