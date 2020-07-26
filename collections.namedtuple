@@ -1,0 +1,13 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from collections import namedtuple as nt
+n = int(input())
+s = list(map(str, input().split()))
+detail = nt('detail', ','.join(s))
+marks = list()
+for i in range(n):
+    ss = tuple(map(str, input().split()))
+    x = detail(*ss)
+    marks.append(int(x.MARKS))   
+#print(marks)    
+z = sum(marks)/n    
+print('%.2f' % z)    
