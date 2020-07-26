@@ -24,13 +24,10 @@ if __name__ == '__main__':
 
     for i,u in enumerate(zip(*arr)):
         if i == k:
-            s = sorted(u)
-            
-            for v in s:
-                indexn.append(u.index(v))
+            indexn = sorted(range(len(u)), key=lambda k: u[k])      
     
     for i,u in enumerate(indexn):
         newarr[i] = arr[u]
-        
+
     for i in newarr:
         print(*i)
