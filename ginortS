@@ -1,0 +1,27 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+alphanum = input()
+alphanum = list(alphanum)
+
+lower_case = range(ord('a'), ord('z')+1)
+upper_case = range(ord('A'),ord('Z')+1)
+digits = range(ord('0'),ord('9')+1)
+
+first = []
+second = []
+even = []
+odd = []
+
+for x in alphanum:
+    if ord(x) in lower_case:
+        first.append(x)
+    if ord(x) in upper_case:
+        second.append(x)
+    if ord(x) in digits:
+        if int(x)%2==0:
+            even.append(x)
+        else:
+            odd.append(x)
+            
+final_str = sorted(first)+ sorted(second)+ sorted(odd)+ sorted(even)
+final_str = ''.join(final_str)
+print(final_str)           
