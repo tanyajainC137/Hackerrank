@@ -1,0 +1,55 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+if __name__ == '__main__':
+    s = input()
+    s = list(s)
+    counter = {}
+    for i in s:
+        counter[str(i)] = s.count(i)
+        
+    temp = []
+    final=[]
+    breaker =0
+
+    val_list = list(counter.values())
+    key_list = list(counter.keys())
+    
+    for j,i in enumerate(sorted(set(val_list), reverse = True)[:3]):
+        temp.append([i])
+        for key,value in counter.items():
+            if value == i:
+                temp[j].append(key)
+
+    for i in temp:
+        if len(i) == 2:
+            final.append(i)  
+        else:
+            n = [i[0]]
+            i.remove(i[0])
+            f = n + sorted(i)
+            final.append(f)    
+            
+    for i in final[:3]:
+        if len(i) ==2:
+            i = [i[1],i[0]]
+            if breaker ==3:
+                break
+            breaker+=1
+            print(*i)
+            
+        else:
+            for j in i:
+                if type(j) == int:
+                    n = j
+                    continue
+                if breaker ==3:
+                    break
+                breaker+=1
+                print(j , n)
+                
