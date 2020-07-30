@@ -1,0 +1,33 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from itertools import combinations, product
+
+k, m = input().split()
+k = int(k); m = int(m)
+mat =[]
+n = []
+for i in range(k):
+    x = list(map(int, input().split()))
+    n.append(x[0])
+    x.remove(x[0])
+    mat.append(x)
+
+b =[]
+for i in range(k):
+    a = []
+    for j in range(n[i]):
+        a.append(j)
+    b.append(a)
+    
+comb = product(*b)
+
+s =[]    
+
+for i in list(comb):
+    y = []
+    for j in range(k):
+        e = mat[j][i[j]]
+        y.append(e*e)
+    s.append(sum(y)%m)
+    
+print(max(s))    
+    
