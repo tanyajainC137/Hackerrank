@@ -1,0 +1,26 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from collections import deque
+t = int(input())
+
+for i in range(t):
+    n= int(input())
+    d = deque(map(float, input().split()))
+
+    for m in reversed(sorted(d)):
+                
+        if not d or len(d)<3:
+            print('Yes')
+            break
+
+        if d[0] == m:
+            d.popleft()
+        elif d[-1] == m:
+            d.pop()
+        
+        else: 
+            print('No')   
+            break         
+
+
+
+    
