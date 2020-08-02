@@ -1,0 +1,39 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+n = int(input())
+for o in range(n):
+    llstr = list(input())
+    found = True
+    if len(llstr) not in [16,19]:
+        found = False
+    if llstr[0] not in ['4','5','6']:
+        found = False       
+
+    ascii = list(range(ord('0'), ord('9')+1))  
+    
+    prev = llstr[0]
+    counter = 1    
+    
+    for idx, i in enumerate(llstr):
+        
+        if ord(i) not in ascii:
+            if i != '-':
+                found = False
+                continue
+            elif idx not in [4,9,14]:
+                found =False
+            
+
+        elif idx == 0:
+            continue
+
+        elif i == prev:
+            counter+=1
+            
+            if counter > 3:
+                found = False
+        else:
+            prev = i
+            counter = 1
+
+        
+    print('Valid') if found else print('Invalid')
